@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8" />
+    <title>Formulário de cadastro de Notícia</title>
+    <style>
+      .campos {
+        display: flex;
+        width: 50%;
+        flex-direction: column;
+      }
+
+      .campos > input[type='text'] {
+        height: 30px;
+      }
+
+      .formulario > input[type='submit'] {
+        height: 30px;
+        display: block;
+        background: #3ecc93;
+        border: #3ecc93;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Adicionar notícia</h1>
+    <br />
+    <hr />
+
+    <form action="/noticias/salvar" method="post" class="formulario">
+      <div class="campos">
+        <label for="titulo">Título</label>
+        <input
+          type="text"
+          name="titulo"
+          id="titulo"
+          placeholder="Titulo Noticias"
+        />
+      </div>
+      <br />
+      <br />
+      <div class="campos">
+        <label for="noticia">Noticía</label>
+        <textarea name="noticia" id="noticia" cols="30" rows="5"></textarea>
+      </div>
+      <br />
+      <input type="submit" value="Cadastrar Noticía" />
+    </form>
+  </body>
+</html>

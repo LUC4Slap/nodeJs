@@ -1,0 +1,65 @@
+{
+  // eslint
+  "eslint.autoFixOnSave": false,
+  "eslint.validate": [
+    {
+      "language": "html",
+      "autoFix": true
+    },
+    {
+      "language": "javascript",
+      "autoFix": true
+    },
+    {
+      "language": "typescript",
+      "autoFix": true
+    },
+    {
+      "language": "vue",
+      "autoFix": true
+    },
+    {
+      "language": "javascriptreact",
+      "autoFix": true
+    },
+    {
+      "language": "typescriptreact",
+      "autoFix": true
+    }
+  ],
+  // formatações
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "editor.formatOnType": false,
+  "editor.autoIndent": false,
+  "editor.tabSize": 2,
+  "editor.rulers": [80, 120], // aqui são as duas linha que estão mrcadas
+  "editor.wordWrap": "off",
+  "editor.tabCompletion": "on",
+
+  // others
+  "window.titleBarStyle": "custom",
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": false
+  },
+  "editor.codeLens": false,
+  "editor.cursorBlinking": "phase",
+  "editor.cursorStyle": "line",
+  "editor.cursorSmoothCaretAnimation": true,
+  "editor.minimap.enabled": true,
+  "editor.renderWhitespace": "none",
+  "files.exclude": {
+    "**/.git": true,
+    "**/.DS_Store": true,
+    "**/*.js": {
+      "when": "$(basename).ts"
+    },
+    "**/*.js.map": {
+      "when": "$(basename)"
+    }
+  },
+  "files.hotExit": "onExit",
+  "files.defaultLanguage": "javascript",
+  "extensions.ignoreRecommendations": false,
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
+}
