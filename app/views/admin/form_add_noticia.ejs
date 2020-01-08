@@ -58,6 +58,7 @@
           name="titulo"
           id="titulo"
           placeholder="Titulo Noticias"
+          value="<%= noticia.titulo %>"
         />
       </div>
       <br />
@@ -68,6 +69,7 @@
           name="resumo"
           id="resumo"
           placeholder="Resumo Noticias"
+          value="<%= noticia.resumo %>"
         />
       </div>
       <br />
@@ -78,6 +80,7 @@
           name="autor"
           id="autor"
           placeholder="Autor da Noticia"
+          value="<%= noticia.autor %>"
         />
       </div>
       <br />
@@ -88,13 +91,16 @@
           name="data"
           id="data"
           placeholder="Data da Noticia"
+          value="<%= noticia.data %>"
         />
       </div>
       <br />
       <br />
       <div class="campos">
         <label for="noticia">Noticía</label>
-        <textarea name="noticia" id="noticia" cols="30" rows="5"></textarea>
+        <textarea name="noticia" id="noticia" cols="30" rows="5">
+          <%= noticia.noticia %>
+        </textarea>
       </div>
       <br />
       <input type="submit" value="Cadastrar Noticía" />
