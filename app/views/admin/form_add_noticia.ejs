@@ -53,20 +53,23 @@
     </nav>
 
     <div class="container">
+      <% if(validacao.length > 0) { %>
       <div class="row">
         <div class="col-md-12">
           <div class="alert alert-danger">
             <strong>Atenção!</strong>
             <ul>
-              <li>Título é obrigatório</li>
-              <li>Resumo é obrigatório</li>
+              <% for(let i = 0; i < validacao.length; i++) { %>
+              <li><%= validacao[i].msg %></li>
+              <% } %>
             </ul>
           </div>
         </div>
       </div>
+      <% } %>
       <div class="row">
         <div class="col-md-12">
-          <form>
+          <form action="/noticias/salvar" method="POST">
             <div class="form-group">
               <label for="titulo">Título:</label>
               <input
