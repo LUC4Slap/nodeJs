@@ -1,109 +1,126 @@
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
-    <meta charset="utf-8" />
-    <title>Formulário de cadastro de Notícia</title>
-    <style>
-      .campos {
-        display: flex;
-        width: 50%;
-        flex-direction: column;
-      }
+    <meta charset="UTF-8" />
 
-      .campos > input[type='text'] {
-        height: 30px;
-      }
+    <title>Portal de notícias</title>
 
-      .formulario {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-      }
+    <!-- JQuery -->
+    <script src="js/jquery-2.2.1.js"></script>
 
-      .formulario > input[type='submit'] {
-        height: 40px;
-        width: 50%;
-        display: block;
-        background: #3ecc93;
-        border: #3ecc93;
-        color: #fff;
-        font-size: 18px;
-        cursor: pointer;
-      }
-    </style>
+    <!-- bootstrap - link cdn -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+      integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+      crossorigin="anonymous"
+    />
+
+    <!-- incluindo css -->
+    <link href="css/style.css" rel="stylesheet" />
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="images/favicon.ico" />
   </head>
+
   <body>
-    <h1>Adicionar notícia</h1>
-    <br />
-    <hr />
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button
+            type="button"
+            class="navbar-toggle collapsed"
+            data-toggle="collapse"
+            data-target="#navbar"
+            aria-expanded="false"
+            aria-controls="navbar"
+          >
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
 
-    <% if(validacao) { %>
+          <img src="images/logo.png" />
+        </div>
 
-    <ul>
-      <% for(let i = 0; i < validacao.length; i++) { %>
-
-      <li><%= validacao[i].msg %></li>
-
-      <% } %>
-    </ul>
-
-    <% } %>
-
-    <form action="/noticias/salvar" method="post" class="formulario">
-      <div class="campos">
-        <label for="titulo">Título</label>
-        <input
-          type="text"
-          name="titulo"
-          id="titulo"
-          placeholder="Titulo Noticias"
-          value="<%= noticia.titulo %>"
-        />
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="index.html">HOME</a></li>
+          </ul>
+        </div>
       </div>
-      <br />
-      <div class="campos">
-        <label for="resumo">Resumo</label>
-        <input
-          type="text"
-          name="resumo"
-          id="resumo"
-          placeholder="Resumo Noticias"
-          value="<%= noticia.resumo %>"
-        />
+    </nav>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="alert alert-danger">
+            <strong>Atenção!</strong>
+            <ul>
+              <li>Título é obrigatório</li>
+              <li>Resumo é obrigatório</li>
+            </ul>
+          </div>
+        </div>
       </div>
-      <br />
-      <div class="campos">
-        <label for="autor">Nome Autor</label>
-        <input
-          type="text"
-          name="autor"
-          id="autor"
-          placeholder="Autor da Noticia"
-          value="<%= noticia.autor %>"
-        />
+      <div class="row">
+        <div class="col-md-12">
+          <form>
+            <div class="form-group">
+              <label for="titulo">Título:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="titulo"
+                name="titulo"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="pwd">Resumo:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="resumo"
+                name="resumo"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="pwd">Autor:</label>
+              <input type="text" class="form-control" id="autor" name="autor" />
+            </div>
+
+            <div class="form-group">
+              <label for="pwd">Data:</label>
+              <input
+                type="date"
+                class="form-control"
+                id="data_noticia"
+                name="data_noticia"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="pwd">Notícia:</label>
+              <textarea
+                class="form-control"
+                id="noticia"
+                name="noticia"
+              ></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-default">Cadastrar</button>
+          </form>
+        </div>
       </div>
-      <br />
-      <div class="campos">
-        <label for="data">Data da Noticia</label>
-        <input
-          type="date"
-          name="data"
-          id="data"
-          placeholder="Data da Noticia"
-          value="<%= noticia.data %>"
-        />
-      </div>
-      <br />
-      <br />
-      <div class="campos">
-        <label for="noticia">Noticía</label>
-        <textarea name="noticia" id="noticia" cols="30" rows="5">
-          <%= noticia.noticia %>
-        </textarea>
-      </div>
-      <br />
-      <input type="submit" value="Cadastrar Noticía" />
-    </form>
+    </div>
+
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+      integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
